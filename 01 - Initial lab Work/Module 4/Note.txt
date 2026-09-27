@@ -1,0 +1,168 @@
+MODULE 4 — ROBOT FRAMEWORK
+SELENIUM APPLICATION / IMPLEMENTATION NOTE
+
+Purpose
+This note documents how the Module 4 Robot Framework concepts from the Python Automation curriculum can be applied to Selenium web automation. It is a knowledge/implementation plan only. No Module 4 execution result is claimed here.
+
+1. Environment and Required Packages
+- Python
+- Robot Framework
+- SeleniumLibrary
+- Selenium WebDriver
+- A supported browser such as Microsoft Edge or Chrome
+- Optional: RIDE or PyCharm for editing and execution
+- Jenkins can be used for scheduled/automated execution
+
+2. Suggested Selenium Project Structure
+
+Module_4/
+├── tests/
+│   └── login.robot
+├── resources/
+│   └── common_keywords.robot
+├── test_data/
+│   └── login_data.robot
+└── README.txt
+
+The exact structure can be adjusted according to the size of the automation project.
+
+3. Basic Robot Framework Selenium Test
+Use SeleniumLibrary in the Settings section and create a test case that:
+- Opens the browser
+- Navigates to the application URL
+- Enters username and password
+- Clicks the login button
+- Verifies the expected page or element
+- Closes the browser
+
+Relevant SeleniumLibrary concepts include browser navigation, text input, element interaction and page verification.
+
+4. Variables
+Store reusable values such as:
+- Application URL
+- Browser name
+- Username
+- Password
+- Expected text
+- Element locators
+
+This avoids repeatedly hard-coding the same values in individual test cases.
+
+5. Data-Driven Automation
+Create multiple login data sets and execute the same login workflow for:
+- Valid credentials
+- Invalid credentials
+- Other validation cases
+
+The objective is to separate test data from the reusable Selenium workflow.
+
+6. User-Defined Keywords
+Create higher-level keywords such as:
+- Open Application
+- Login With Credentials
+- Verify Login Success
+- Verify Login Error
+- Close Application
+
+These keywords can combine several SeleniumLibrary keywords into a single readable action.
+
+7. Resource Files
+Move reusable keywords and variables into resource files so that multiple Robot Framework test suites can use the same Selenium functionality.
+
+This keeps individual test cases shorter and improves maintainability.
+
+8. Assertions and Verification
+Use Robot Framework verification keywords to check expected results, for example:
+- Element presence
+- Element visibility
+- Page text
+- URL/page state
+- Expected versus actual values
+
+The curriculum specifically includes verification using keywords such as Should Be Equal As Strings.
+
+9. Setup and Teardown
+Configure common setup and cleanup operations.
+
+Example flow:
+Setup:
+- Open browser
+- Navigate to application
+
+Test:
+- Perform the required Selenium actions
+- Verify the result
+
+Teardown:
+- Close browser
+- Clean up resources
+
+10. Tags and Execution
+Assign tags such as:
+- smoke
+- regression
+- login
+- negative
+
+Tests can then be selected or excluded from command-line execution using Robot Framework tag options such as --include and --exclude.
+
+11. Reports and Logs
+Robot Framework execution can provide HTML reports and logs containing:
+- Test case results
+- Keyword execution details
+- Pass/fail status
+- Execution information
+
+The Log keyword can be used to add useful messages for debugging and traceability.
+
+12. Command-Line and IDE Execution
+The Selenium-based Robot Framework suite can be run through:
+- Command Window / terminal
+- PyCharm
+- RIDE
+
+The curriculum also covers running individual tests, multiple suites and advanced execution options.
+
+13. Jenkins / Scheduled Execution
+The completed Robot Framework Selenium suite can be integrated with Jenkins for:
+- Automated execution
+- Scheduled test runs
+- Build-based execution
+- Report generation after execution
+
+14. Readability and Gherkin Concepts
+Robot Framework keywords can be written at a high level so that a test reads close to the intended behaviour.
+
+Example conceptual flow:
+Open Application
+Login With Credentials
+Verify Login Success
+Close Application
+
+This follows the curriculum's focus on making scripts more readable and introducing Gherkin-style readability.
+
+15. Page Object Concept
+The curriculum includes an overview of Page Objects. For a Selenium Robot Framework implementation, page-specific Selenium interactions can be organized into reusable keywords/resource files so that test cases remain focused on the business flow.
+
+Relation to previous modules:
+- Module 2 used Python Page Object Model classes.
+- Module 3 used Page Object Model with Behave.
+- Module 4 introduces the equivalent maintainability goal through Robot Framework keywords and resource organization.
+
+16. Expected Learning Outcome
+Applying the Module 4 concepts to Selenium would demonstrate understanding of:
+- Robot Framework syntax
+- SeleniumLibrary browser automation
+- Variables
+- Data-driven testing
+- User-defined keywords
+- Resource files
+- Assertions and verification
+- Setup and teardown
+- Tags and command-line execution
+- Reports and logs
+- Jenkins integration
+- Readable and maintainable automation structure
+
+Scope Note
+This file describes the implementation approach and knowledge associated with Module 4. It is not an execution record and should not be interpreted as evidence that the above Selenium Robot Framework tests were executed.

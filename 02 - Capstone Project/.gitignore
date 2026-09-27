@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Allure generated results
+allure-results/
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
